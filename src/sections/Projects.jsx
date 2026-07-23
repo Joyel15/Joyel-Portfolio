@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import medibook from "../assets/medibook.png";
+import bloodbank from "../assets/bloodbank.png";
 
 function Projects() {
-  
   const [project, setProject] = useState(null);
 
   // Projects array storing details of each project
@@ -15,9 +15,37 @@ function Projects() {
       description:
         "MediBook is a full-stack appointment booking platform where patients can browse doctors by specialization, check real-time availability, and book appointments in a few clicks. Built with secure authentication and a clean, patient-friendly UI to simplify healthcare access.",
       technologies: ["React", "Tailwind", "Express", "Node", "MongoDB"],
-      features: [],
+      features: [
+        "JWT-based authentication with bcrypt password hashing and three role-based portals (Patient, Doctor, Admin) with protected, server-hardened routes",
+        "Patients can search doctors by specialization or symptom, book/cancel appointments via a visual real-time slot picker, and leave reviews after completed visits",
+        "Doctors get a dashboard with appointment stats, booking management (confirm/complete/cancel), and flexible multi-block availability scheduling",
+        "Admins can approve doctor applications, manage all registered users",
+        "Cloudinary-powered profile photo uploads, automated email notifications, and full-stack deployment (Render backend, Vercel frontend)",
+      ],
       github: "https://github.com/Joyel15/doctor-appointment-booking",
       live: "https://medibook-doctor-appointment.vercel.app",
+    },
+    {
+      id: 2,
+      title: "Blood Bank Management System",
+      image: bloodbank,
+      description:
+        "A web-based Blood Bank Management System developed using PHP, MySQL, HTML, Bootstrap, and JavaScript. The system helps manage blood donors, blood groups, blood requests, and provides an admin dashboard for efficient blood bank management.",
+      technologies: [
+        "HTML5",
+        "Bootstrap",
+        "JavaScript",
+        "PHP",
+        "MySQL",
+      ],
+      features: [
+        "Enables users to view available blood groups, search for donors by blood group, and register as a donor or submit inquiries via a contact form",
+        "Provides a secure admin login and dashboard to manage blood groups, donor records, and contact queries",
+        "Allows admins to edit website page content and donor records",
+        "Built using PHP and MySQL for backend logic and data storage, with HTML, Bootstrap, and JavaScript for a responsive front-end",
+      ],
+      github: "https://github.com/Joyel15/BloodBank-website",
+      live: "",
     },
   ];
 
@@ -28,18 +56,18 @@ function Projects() {
           PROJECTS
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-emerald-50  dark:bg-gray-900 p-3 md:p-4 rounded-lg border-2 border-green-300  dark:border-stone-300 transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:shadow-lg"
+              className="group bg-emerald-50  dark:bg-gray-900 p-3 md:p-4 rounded-lg border-2 border-green-300  dark:border-stone-300 transition-all duration-300 cursor-pointer hover:scale-[1.03] hover:shadow-lg w-full sm:w-[45%] lg:w-[30%]"
               onClick={() => setProject(project)}
             >
-              <div className="relative overflow-hidden rounded-md">
+              <div className="relative overflow-hidden rounded-md h-48 md:h-54">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="rounded-md"
+                  className="w-full h-full object-cover   rounded-md"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="text-emerald-500 dark:text-white font-semibold text-sm md:text-lg px-3 py-1.5 border border-emerald-400 dark:border-white/60 rounded-full">
@@ -98,19 +126,24 @@ function Projects() {
             </div>
 
             <div className="p-6">
-              <p className="text-gray-700 dark:text-gray-300 mt-3 leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 mt-3 font-[Arial] leading-relaxed">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mt-4">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="bg-emerald-400 dark:bg-gray-700 text-slate-50 px-3 py-1 rounded-full text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className="mt-4">
+                <h4 className="text-lg font-semibold text-emerald-600 dark:text-white mb-2">
+                  Tech stack
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="bg-emerald-400 dark:bg-gray-700 text-slate-50 px-3 py-1 rounded-full text-sm"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {project.features && project.features.length > 0 && (
@@ -118,23 +151,30 @@ function Projects() {
                   <h4 className="text-lg font-semibold text-emerald-600 dark:text-white mb-2">
                     Features
                   </h4>
-                  <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+                  <ul className="space-y-2">
                     {project.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-stone-300 flex-shrink-0"></span>
+                        <span className="text-gray-700 dark:text-gray-300 font-[helvetica]">
+                          {feature}
+                        </span>
+                      </li>
                     ))}
                   </ul>
                 </div>
               )}
 
               <div className="flex gap-4 mt-6">
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-700 dark:bg-neutral-50 text-neutral-50 dark:text-blue-600 font-bold px-4 py-2 rounded-lg hover:bg-blue-500 dark:hover:bg-gray-300 transition-colors"
-                >
-                  Live link
-                </a>
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-700 dark:bg-neutral-50 text-neutral-50 dark:text-blue-600 font-bold px-4 py-2 rounded-lg hover:bg-blue-500 dark:hover:bg-gray-300 transition-colors"
+                  >
+                    Live link
+                  </a>
+                )}
 
                 <a
                   href={project.github}
