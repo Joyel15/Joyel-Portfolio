@@ -32,7 +32,7 @@ function Hero() {
                 }}
                 className="text-xl md:text-2xl text-emerald-500 dark:text-gray-500 mb-6 font-[monospace]"
               >
-                ASPIRING WEB DEVELOPER
+                Full-Stack Developer
               </motion.p>
             </div>
           </div>
