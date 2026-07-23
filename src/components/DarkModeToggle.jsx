@@ -14,33 +14,33 @@ export default function DarkModeToggle() {
     <div className="flex items-center">
       <button
         onClick={toggleTheme}
-        className={`relative w-16 h-8 md:w-24 md:h-12 rounded-full transition-all duration-500 shadow-lg ${
+        className={`relative w-12 h-6 md:w-16 md:h-8 rounded-full transition-all duration-500 shadow-md ${
           theme === "dark" ? "bg-gray-800" : "bg-emerald-300"
         }`}
       >
         <div
-          className={`absolute top-0.5 md:top-1 w-7 h-7 md:w-10 md:h-10 rounded-full shadow-md transition-all duration-500 flex items-center justify-center ${
+          className={`absolute top-0.5 w-5 h-5 md:w-7 md:h-7 rounded-full shadow-md transition-all duration-500 flex items-center justify-center ${
             theme === "dark"
-              ? "left-[34px] md:left-[52px] bg-blue-700"
-              : "left-0.5 md:left-1 bg-white"
+              ? "left-[26px] md:left-[35px] bg-blue-700"
+              : "left-0.5 bg-white"
           }`}
         >
           {theme === "dark" ? (
-            <FiMoon className="text-white text-sm md:text-xl" />
+            <FiMoon className="text-white text-xs md:text-sm" />
           ) : (
-            <FiSun className="text-yellow-500 text-sm md:text-xl" />
+            <FiSun className="text-yellow-500 text-xs md:text-sm" />
           )}
         </div>
  
 
-        <div className="absolute inset-0 flex items-center justify-between px-3">
+        <div className="absolute inset-0 flex items-center justify-between px-1.5">
           <FiSun
-            className={`text-sm md:text-xl transition-colors duration-300 ${
+            className={`text-xs md:text-sm transition-colors duration-300 ${
               theme === "dark" ? "text-gray-500" : "text-transparent"
             }`}
           />
           <FiMoon
-            className={`text-sm md:text-xl transition-colors duration-300 ${
+            className={`text-xs md:text-sm transition-colors duration-300 ${
               theme === "dark" ? "text-transparent" : "text-gray-600"
             }`}
           />
