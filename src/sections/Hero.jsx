@@ -72,7 +72,7 @@ function Hero() {
                 delay: 0.6,
                 ease: "easeOut",
               }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white font-medium shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 mx-auto md:mx-0"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 dark:bg-slate-900 text-white font-medium shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-emerald-700 dark:hover:bg-slate-800 mx-auto md:mx-0"
             >
               View Resume →
                </motion.a>
