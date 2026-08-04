@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import medibook from "../assets/medibook.png";
 import bloodbank from "../assets/bloodbank.png";
+import stockflow from "../assets/stockflow.png";
 
 function Projects() {
   const [project, setProject] = useState(null);
@@ -10,7 +11,7 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: "Medibook - Doctor appointment booking system",
+      title: "Medibook - Healthcare appointment platform",
       image: medibook,
       description:
         "MediBook is a full-stack appointment booking platform where patients can browse doctors by specialization, check real-time availability, and book appointments in a few clicks. Built with secure authentication and a clean, patient-friendly UI to simplify healthcare access.",
@@ -27,6 +28,30 @@ function Projects() {
     },
     {
       id: 2,
+      title: "StockFlow - Inventory & Order Management",
+      image:stockflow,
+      description:
+      "A production-grade inventory management system built on the PERN stack. Unifies sales, purchasing, and manual stock movements into atomic PostgreSQL transactions via Prisma. Features a normalized 13-table schema with protective referential integrity, Jest/Supertest regression coverage, and live deployment across Vercel, Render, and Aiven.",
+      technologies: [
+        "PostgreSQL",
+        "Node",
+        "Express",
+        "React",
+        "Prisma",
+        "Tailwind",
+      ],
+      features: [
+        "Built an atomic inventory pipeline that consolidates sales, purchasing, and manual adjustments into a single consistent stock count — eliminating stale data and race conditions.",
+        "Designed a 13-table normalized PostgreSQL schema with deliberate CASCADE/RESTRICT/SET NULL foreign key strategies to protect financial records and maintain audit integrity.",
+        "Built transaction-safe order processing using Prisma interactive transactions, with Jest tests verifying actual database state — guaranteeing full rollback on any failure, never partial writes.",
+        "Caught unreachable code in a critical status-update function via Jest/Supertest before deployment — preventing a production-breaking order cancellation bug and adding permanent regression coverage.", 
+        "Deployed a production PERN stack across Vercel, Render, and Aiven, resolving CORS, SSL, and cross-service environment config to ship a live, resilient system — not a localhost demo.",     
+      ],
+      github: "https://github.com/Joyel15/pern-inventory-order-management-system",
+      live: "https://stockflow-inventory-order-management.vercel.app",
+    },
+    {
+      id: 3,
       title: "Blood Bank Management System",
       image: bloodbank,
       description:
@@ -47,6 +72,7 @@ function Projects() {
       github: "https://github.com/Joyel15/BloodBank-website",
       live: "",
     },
+    
   ];
 
   return (
