@@ -1,5 +1,6 @@
 import profile from "../assets/profile.jpeg";
 import { motion } from "framer-motion";
+import ResumePDF from "../assets/Joyel_Dsouza_Resume.pdf";
 
 function Hero() {
   return (
@@ -62,7 +63,7 @@ function Hero() {
 
             {/* Resume Button */}
             <motion.a
-              href=""
+              href={ResumePDF}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 15 }}
