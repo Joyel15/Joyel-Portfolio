@@ -99,7 +99,7 @@ function Navbar() {
       <div
         role="dialog"
         aria-modal="true"
-        className={`fixed top-0 right-0 h-screen w-[78%] max-w-xs bg-white dark:bg-black z-40 flex flex-col
+        className={`fixed top-0 right-0 h-dvh w-[78%] max-w-xs bg-white dark:bg-black z-40 flex flex-col
           shadow-[-8px_0_24px_rgba(0,0,0,0.08)] dark:shadow-[-8px_0_24px_rgba(0,0,0,0.4)]
           transition-transform duration-300 ease-out md:hidden ${
             isOpen ? "translate-x-0" : "translate-x-full"
